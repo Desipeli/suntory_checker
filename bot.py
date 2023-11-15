@@ -5,7 +5,7 @@ from discord.ext import commands, tasks
 from logger import Logger
 
 
-URL_LIST = "https://reserve.suntory.co.jp/regist/switch/00051c0001CJe69uI7/courseList?wr=suntory_factory&p=yamazaki_02&k=10601749735d537e6d01474266124076005616670a1540651915275d0410650710476347142002061260001116604247710701176c0a1b423410162456071861041a1568174171533d1761071047324748"
+URL_LIST = "https://reserve.suntory.co.jp/regist/switch/00051c0001CJe69uI7/courseList?wr=suntory_factory&p=yamazaki_02"
 URL = "https://reserve.suntory.co.jp/regist/is?SMPFORM=ngoe-lenetb-550fe19094a7fbbfd41c49a7ce9cc871&courseNo=00422&eventDate="
 
 EVENT_DATES = ["2023年1月15日", "2023年1月16日", "2023年1月17日",

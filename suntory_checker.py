@@ -14,9 +14,19 @@ class SuntoryChecker:
 
     def check_tour(self):
         # Get cookie, does not work without
-        self.session.get(self.url_list, allow_redirects=True)
+        try:
+            self.session.get(self.url_list, allow_redirects=True)
+            self.logger.log("Cookie fetched")
+        except Exception as error:
+            self.logger.error("Could not fetch cookie")
+            return False
 
-        the_page = self.session.get(self.url, allow_redirects=True)
+        try:
+            the_page = self.session.get(self.url, allow_redirects=True)
+            print(the_page.text)
+            self.logger.log("Page fetched")
+        except Exception as error:
+            self.logger.error("Could not fetch booking page")
 
         match = re.search(r'var\s+seminars\s*=\s*(\[{.*}\])', the_page.text)
 
