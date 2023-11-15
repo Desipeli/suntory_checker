@@ -80,6 +80,7 @@ class Bot:
             try:
                 msg = ctx.message.content[14:]
                 dates_list = msg.strip().split(" ")
+                self.suntory.set_event_dates(dates_list)
                 await ctx.channel.send("new dates set. Check with getdates")
             except Exception as error:
                 self.logger.error(error)
