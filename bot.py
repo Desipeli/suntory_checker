@@ -8,8 +8,8 @@ from logger import Logger
 URL_LIST = "https://reserve.suntory.co.jp/regist/switch/00051c0001CJe69uI7/courseList?wr=suntory_factory&p=yamazaki_02"
 URL = "https://reserve.suntory.co.jp/regist/is?SMPFORM=ngoe-lenetb-550fe19094a7fbbfd41c49a7ce9cc871&courseNo=00422&eventDate="
 
-EVENT_DATES = ["2023年1月15日", "2023年1月16日", "2023年1月17日",
-               "2023年1月18日", "2023年1月19日", "2023年1月20日"]
+EVENT_DATES = ["2023年1月9日", "2023年1月10日", "2023年1月11日",
+               "2023年1月12日", "2023年1月13日", "2023年1月14日"]
 
 
 class Bot:
