@@ -26,10 +26,11 @@ class Bot:
     def run(self):
 
         @tasks.loop(minutes=30)
-        async def printer():
+        async def check_loop():
             if not self.checking:
                 return
 
+            self.logger.log("starting fetching")
             result = self.suntory.check_tour()
             if result:
                 for channel_id in self.alerting:
@@ -40,18 +41,24 @@ class Bot:
         @self.bot.event
         async def on_ready():
             self.logger.log("Bot running")
-            printer.start()
+            check_loop.start()
 
         @self.bot.command(name="rc")
         async def rc(ctx):
+            self.logger.log(
+                f"!rc, user={str(ctx.author)}, , channel_id={ctx.channel.id}")
             if not self.checking:
                 self.checking = True
+                self.logger.log("checking reactivated")
                 await ctx.channel.send(f"Checking again")
             else:
+                self.logger.log("already checking")
                 await ctx.channel.send(f"Already checking")
 
         @self.bot.command(name="ref")
         async def ref(ctx):
+            self.logger.log(
+                f"!ref, user={str(ctx.author)}, channel_id={ctx.channel.id}")
             result = self.suntory.check_tour()
             if result:
                 await ctx.channel.send(f"Book Now! {URL}")
@@ -60,6 +67,8 @@ class Bot:
 
         @self.bot.command(name="alert")
         async def alert_me(ctx):
+            self.logger.log(
+                f"!alert, user={str(ctx.author)}, channel_id={ctx.channel.id}")
             if ctx.channel.id not in self.alerting:
                 self.alerting.append(ctx.channel.id)
                 self.logger.log(f"alerting channel {ctx.channel.id}")
@@ -69,6 +78,8 @@ class Bot:
 
         @self.bot.command(name="getdates")
         async def get_dates(ctx):
+            self.logger.log(
+                f"!getdates, user={str(ctx.author)}, channel_id={ctx.channel.id}")
             try:
                 dates = self.suntory.get_dates()
                 await ctx.channel.send({str(dates)})
@@ -77,6 +88,8 @@ class Bot:
 
         @self.bot.command(name="seteventdates")
         async def set_dates(ctx):
+            self.logger.log(
+                f"!seteventdates, user={str(ctx.author)}, channel_id={ctx.channel.id}")
             try:
                 msg = ctx.message.content[14:]
                 dates_list = msg.strip().split(" ")

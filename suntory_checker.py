@@ -44,11 +44,14 @@ class SuntoryChecker:
         return False
 
     def set_event_dates(self, dates: list):
+        self.logger.log("Clearing old dates before adding new ones")
         self.event_dates.clear()
 
         try:
             for date in dates:
                 self.event_dates.append(date)
+
+            self.logger.log(f"set new dates {str(dates)}")
         except Exception as error:
             self.logger.error(error)
 

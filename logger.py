@@ -1,12 +1,16 @@
 import datetime
+import logging
 
 
 class Logger:
     def __init__(self):
-        self.log("Logger created")
+        logging.basicConfig(level=logging.DEBUG,
+                            format='%(asctime)s - %(levelname)s - %(message)s')
+        self.logger = logging.getLogger(__name__)
+        self.logger.info("Logger created")
 
     def log(self, msg):
-        print(f"{datetime.datetime.now()} - {msg}")
+        self.logger.info(msg)
 
     def error(self, msg):
-        print(f"{datetime.datetime.now()} - ERROR - {msg}")
+        self.logger.error(msg)
