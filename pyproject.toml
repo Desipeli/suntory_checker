@@ -10,7 +10,6 @@ python = "^3.11"
 discord = "^2.2.3"
 python-dotenv = "^1.0.0"
 requests = "^2.31.0"
-selenium = "^4.15.2"
 
 
 [build-system]

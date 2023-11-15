@@ -25,7 +25,7 @@ class Bot:
 
     def run(self):
 
-        @tasks.loop(seconds=30)
+        @tasks.loop(minutes=30)
         async def printer():
             if not self.checking:
                 return
