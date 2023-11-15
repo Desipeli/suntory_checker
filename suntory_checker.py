@@ -23,7 +23,7 @@ class SuntoryChecker:
 
         try:
             the_page = self.session.get(self.url, allow_redirects=True)
-            print(the_page.text)
+            # print(the_page.text)
             self.logger.log("Page fetched")
         except Exception as error:
             self.logger.error("Could not fetch booking page")
