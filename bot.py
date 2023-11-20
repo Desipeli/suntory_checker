@@ -15,6 +15,7 @@ EVENT_DATES = ["2023年1月9日", "2023年1月10日", "2023年1月11日",
 class Bot:
     def __init__(self, logger: "Logger", suntory: "SuntoryChecker") -> None:
         self.logger = logger
+        discord.VoiceClient.warn_nacl = False
         intents = discord.Intents.default()
         intents.messages = True
         intents.message_content = True
