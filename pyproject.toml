@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "chatgpt"
+name = "suntorybot"
 version = "0.1.0"
 description = ""
 authors = ["Desipeli <mr.desipeli@gmail.com>"]

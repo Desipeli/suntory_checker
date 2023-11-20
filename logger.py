@@ -1,11 +1,12 @@
-import datetime
 import logging
+from config import LOGFILE
 
 
 class Logger:
     def __init__(self):
         logging.basicConfig(level=logging.DEBUG,
-                            format='%(asctime)s - %(levelname)s - %(message)s')
+                            format='%(asctime)s - %(levelname)s - %(message)s',
+                            filename=f"logs/{LOGFILE}")
         self.logger = logging.getLogger(__name__)
         self.logger.info("Logger created")
 

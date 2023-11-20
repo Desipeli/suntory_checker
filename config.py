@@ -10,3 +10,4 @@ except FileNotFoundError:
 
 
 TOKEN_DISCORD = os.getenv('TOKEN_DISCORD')
+LOGFILE = os.getenv('LOGFILE')
